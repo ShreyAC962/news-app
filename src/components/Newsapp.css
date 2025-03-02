@@ -1,0 +1,250 @@
+/* General Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #0d1b2a, #1b263b, #415a77);
+    color: #e0e1dd;
+}
+
+/* Navbar */
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 15px 50px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+}
+
+/* Logo on Left */
+nav h1 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #00eaff;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 15px rgba(0, 234, 255, 0.8);
+    flex: 1;  /* Push to left */
+}
+
+/* Center Links */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    flex: 1;
+    justify-content: center;
+}
+
+nav ul a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 500;
+    transition: 0.4s ease-in-out;
+    position: relative;
+}
+
+nav ul a::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #00eaff;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s ease-in-out;
+}
+
+nav ul a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* Search Bar - Moved to Right with Spacing */
+.searchBar {
+    display: flex;
+    gap: 10px;
+    flex: 1;
+    justify-content: flex-end;
+    margin-left: auto;  /* Ensures spacing from 'Trending' */
+}
+
+/* Search Input */
+.searchBar input {
+    padding: 10px 15px;
+    font-size: 16px;
+    border: 2px solid #00eaff;
+    border-radius: 25px;
+    outline: none;
+    width: 250px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    transition: 0.3s ease-in-out;
+}
+
+.searchBar input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.searchBar input:focus {
+    border-color: #ffffff;
+    box-shadow: 0px 0px 12px rgba(255, 255, 255, 0.8);
+}
+
+/* Improved Search Button Color */
+.searchBar button {
+    padding: 10px 15px;
+    border: none;
+    background: linear-gradient(45deg, #00c3ff, #008cff);
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: 0.4s ease-in-out;
+}
+
+/* Hover Effect for Search Button */
+.searchBar button:hover {
+    background: linear-gradient(45deg, #008cff, #005bbb);
+    transform: scale(1.1);
+    box-shadow: 0px 0px 15px rgba(0, 195, 255, 0.8);
+}
+
+/* Paragraph Styling */
+p {
+    font-size: 26px;
+    font-weight: 500;
+    color: #f1f1f1;
+    text-align: center;
+    margin-top: 20px;
+    max-width: 600px;
+    line-height: 1.6;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+    transition: 0.3s ease-in-out;
+}
+
+/* Hover Effect for Paragraph */
+p:hover {
+    background: rgba(0, 195, 255, 0.2);
+    transform: translateY(-3px);
+    box-shadow: 0px 6px 18px rgba(0, 195, 255, 0.3);
+}
+
+
+/* Category Buttons */
+.categoryBtn {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.categoryBtn button {
+    background: linear-gradient(45deg, #ff6600, #ff3300);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    padding: 12px 20px;
+    margin: 5px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+    text-transform: uppercase;
+}
+
+.categoryBtn button:hover {
+    transform: translateY(-5px);
+    background: linear-gradient(45deg, #ff4500, #ff2200);
+    box-shadow: 0px 10px 20px rgba(255, 99, 71, 0.6);
+}
+
+/* Card Container - Ensures Cards Move to Next Line */
+.cardContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+    width: 100%;
+}
+
+
+/* Responsive Navbar */
+@media (max-width: 768px) {
+    /* Adjust navbar items layout */
+    nav {
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    nav h1 {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    /* Navbar links stack vertically */
+    nav ul {
+        display: none;  /* Hide the links by default */
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    /* Hamburger Menu */
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        cursor: pointer;
+        margin-left: auto;
+    }
+
+    .hamburger div {
+        width: 30px;
+        height: 4px;
+        background-color: #00eaff;
+        transition: 0.3s ease;
+    }
+
+    /* Show navbar links when hamburger is clicked */
+    .hamburger.active + nav ul {
+        display: flex;
+    }
+
+    /* Hover effect for hamburger */
+    .hamburger div:nth-child(1):hover {
+        transform: rotate(45deg);
+    }
+    .hamburger div:nth-child(2):hover {
+        opacity: 0;
+    }
+    .hamburger div:nth-child(3):hover {
+        transform: rotate(-45deg);
+    }
+}
+
+/* When the hamburger menu is clicked */
+.hamburger.active div:nth-child(1) {
+    transform: rotate(45deg);
+}
+
+.hamburger.active div:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active div:nth-child(3) {
+    transform: rotate(-45deg);
+}
